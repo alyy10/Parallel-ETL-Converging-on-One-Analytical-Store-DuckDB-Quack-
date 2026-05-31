@@ -27,6 +27,9 @@ python run_etl.py --fresh            # wipe warehouse.db and reload from scratch
 You'll see each worker report its per-shard `in / loaded / rejected / dupe`
 counts as it finishes, then a converged report: revenue by region & category,
 a monthly trend, top customers, and a data-quality audit.
+<img width="1108" height="703" alt="lnkdn7" src="https://github.com/user-attachments/assets/739dbaed-3fb5-4091-9f13-6ad0086a39df" />
+<img width="548" height="707" alt="lnkdn8" src="https://github.com/user-attachments/assets/0825bad8-48dc-4495-9830-c72326b1e5dd" />
+<img width="1270" height="397" alt="lnkdn9" src="https://github.com/user-attachments/assets/5559ee2f-913d-48f9-b17f-c45d57e8abfb" />
 
 ### The pieces
 
