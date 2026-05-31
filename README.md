@@ -4,7 +4,7 @@ process can write the file; the usual workaround is to stage each worker's
 output separately and merge later. [Quack](https://duckdb.org/quack/) removes
 that: one server serializes the commits, and every worker loads in parallel.
 
-<img width="1000" height="400" alt="t" src="https://github.com/user-attachments/assets/a06654b5-f208-4fa8-9981-36b185e2d255" />
+<img width="1070" height="420" alt="t1" src="https://github.com/user-attachments/assets/e3f2ff88-f2a3-4876-8e47-c3fd7a68ec1a" />
 
 ## Run it
 
