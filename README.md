@@ -4,16 +4,7 @@ process can write the file; the usual workaround is to stage each worker's
 output separately and merge later. [Quack](https://duckdb.org/quack/) removes
 that: one server serializes the commits, and every worker loads in parallel.
 
-```
- raw/orders_shard_00.csv ─► worker w1 ─┐  Extract → Transform → Load
- raw/orders_shard_01.csv ─► worker w2 ─┤      (clean in each worker's
- raw/orders_shard_02.csv ─► worker w3 ─┤       OWN process, in parallel)
- raw/orders_shard_03.csv ─► worker w1 ─┼──►  Quack server ──► warehouse.db
- raw/orders_shard_04.csv ─► worker w2 ─┤     serializes commits   ▲
- raw/orders_shard_05.csv ─► worker w3 ─┘                          │
-                                              report.py ──────────┘
-                                       (server-side analytics via remote.query)
-```
+<img width="1000" height="400" alt="t" src="https://github.com/user-attachments/assets/a06654b5-f208-4fa8-9981-36b185e2d255" />
 
 ## Run it
 
