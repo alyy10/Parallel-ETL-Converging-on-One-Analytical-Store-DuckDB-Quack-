@@ -76,15 +76,10 @@ running twice keeps the store at exactly the same row count.
    `DELETE`/`UPDATE` there raise `Can only delete from base table`. Route them
    server-side via `remote.query($q$ DELETE FROM ... $q$)` instead (see
    `worker.remote_exec`). `INSERT ... SELECT` into `remote.orders` works fine.
-2. **One server per port.** Only one Quack server can own port **9494**. If a
-   previous demo is still running, a new server silently fails to bind and your
-   clients hit the *old* server → `Authentication failed` (wrong token). Stop
-   prior demos first. On Windows: `Get-Process python | Stop-Process`.
 
 ## Where this maps in the real world
 
 This is the shape of a real **ELT/ETL fan-out**: partition the input, transform
-each partition in parallel, converge into one analytical table. Raw files in S3 → parallel **dbt** models / Snowflake `COPY INTO`→ one fact table → **Sigma** dashboards. Here the same pattern runs on one
-laptop with no warehouse — Quack supplies the concurrent-load capability that
+each partition in parallel, converge into one analytical table. Raw files in S3 → parallel **dbt** models / Snowflake `COPY INTO`→ one fact table → **Sigma** dashboards. Here the same pattern runs locally with no warehouse — Quack supplies the concurrent-load capability that
 embedded DuckDB lacks.
 
