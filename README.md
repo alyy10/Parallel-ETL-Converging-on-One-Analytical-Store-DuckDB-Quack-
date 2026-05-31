@@ -80,8 +80,6 @@ running twice keeps the store at exactly the same row count.
    previous demo is still running, a new server silently fails to bind and your
    clients hit the *old* server → `Authentication failed` (wrong token). Stop
    prior demos first. On Windows: `Get-Process python | Stop-Process`.
-3. (Carried over from Project 1) No column `DEFAULT`s / sequences on served
-   tables — we set `load_ts` with `now()` inside the `INSERT`.
 
 ## Where this maps in the real world
 
